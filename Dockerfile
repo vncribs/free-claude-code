@@ -6,6 +6,6 @@ RUN pip install uv
 
 COPY . .
 
-RUN uv sync --locked --no-dev
+RUN SETUPTOOLS_SCM_PRETEND_VERSION=0.0.0 uv sync --locked --no-dev
 
 CMD ["uv", "run", "--no-sync", "fcc-server"]
