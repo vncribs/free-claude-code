@@ -21,4 +21,8 @@ COPY . .
 
 RUN SETUPTOOLS_SCM_PRETEND_VERSION=0.0.0 uv sync --locked --no-dev
 
+COPY docker-entrypoint.sh /usr/local/bin/fcc-entrypoint
+RUN chmod 755 /usr/local/bin/fcc-entrypoint
+
+ENTRYPOINT ["/usr/local/bin/fcc-entrypoint"]
 CMD ["uv", "run", "--no-sync", "fcc-server"]
