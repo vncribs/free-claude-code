@@ -12,6 +12,9 @@ RUN npm install -g @anthropic-ai/claude-code
 
 WORKDIR /app
 
+RUN mkdir -p /app/agent_workspace/plans
+ENV CLAUDE_WORKSPACE=/app/agent_workspace
+
 RUN pip install uv
 
 COPY . .
